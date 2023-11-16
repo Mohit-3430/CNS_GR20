@@ -25,10 +25,10 @@
 |:----|:----|
 |Public Keys available = P, G|Public Keys available = P, G|
 |Private Key Selected = a|Private Key Selected = b|
-|Key generated =x = G^a mod P|Key generated =y = G^b mod P|
+|Key generated =x = G<sup>a</sup> mod P|Key generated =y = G<sup>b</sup> mod P|
 |Exchange of generated keys takes place|
 |Key received = y|key received = x|
-|Generated Secret Key =k_a = y^a mod P| Generated Secret Key =k_b = x^b mod P|
+|Generated Secret Key =k_a = y<sup>a</sup> mod P| Generated Secret Key =k_b = x<sup>b</sup> mod P|
 |Algebraically, it can be shown thatk_a = k_b|
 |Users now have a symmetric secret key to encrypt|
 
