@@ -1,7 +1,6 @@
 import java.security.*;
 
-public class Playground
-{
+public class Task_12 {
     public static void main(String[] args) throws Exception {
 
         // Generating key pair
@@ -9,25 +8,19 @@ public class Playground
         keyPairGenerator.initialize(2048);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
-        // Creating a Signature object
-        Signature signature = Signature.getInstance("SHA256withRSA");
-
-        // Initializing the signature
-        signature.initSign(keyPair.getPrivate());
-
-        // Data to be signed
+        // data to be signed
         String data = "Hello, this is the text to be signed.";
 
-        // Update the data to be signed
+        // Signing
+        Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initSign(keyPair.getPrivate());
         signature.update(data.getBytes());
 
         // Generate the digital signature
         byte[] digitalSignature = signature.sign();
-
-        // TODO : Fix this line
         System.out.println("Digital Signature: " + new String(digitalSignature));
 
-        // Verification
+        // Verification Signature
         Signature verificationSignature = Signature.getInstance("SHA256withRSA");
         verificationSignature.initVerify(keyPair.getPublic());
         verificationSignature.update(data.getBytes());
@@ -40,7 +33,7 @@ public class Playground
 }
 
 /*
-OP:
-Digital Signature : some rubbish
-Signature verified : true
-*/
+ * OP:
+ * Digital Signature : some rubbish
+ * Signature verified : true
+ */
