@@ -1,4 +1,5 @@
 import java.security.*;
+import java.util.*;
 
 public class Task_12 {
     public static void main(String[] args) throws Exception {
@@ -18,7 +19,7 @@ public class Task_12 {
 
         // Generate the digital signature
         byte[] digitalSignature = signature.sign();
-        System.out.println("Digital Signature: " + new String(digitalSignature));
+        System.out.println("Digital Signature: " + Base64.getEncoder().encodeToString(digitalSignature));
 
         // Verification Signature
         Signature verificationSignature = Signature.getInstance("SHA256withRSA");
