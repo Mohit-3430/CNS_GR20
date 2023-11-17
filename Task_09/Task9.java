@@ -5,14 +5,13 @@ import java.util.*;
 
 public class Task9 {
     public static void main(String[] a) {
+        System.out.println("Enter String to Hash:");
         Scanner sc = new Scanner(System.in);
         String inp = sc.next();
         System.out.println(sha1(inp));
     }
 
     public static String sha1(String input) {
-        if (input == null)
-            return null;
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA1");
             digest.update(input.getBytes());
@@ -20,8 +19,8 @@ public class Task9 {
             // 1-> positive number 16-> for hexa to string
             String sha1 = new BigInteger(1, digest.digest()).toString(16);
             return sha1;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e);
         }
         return null;
     }
