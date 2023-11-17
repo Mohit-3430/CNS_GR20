@@ -7,6 +7,7 @@ class RSA {
     private int blocksize = 256;
 
     private Random r;
+
     public RSA() {
         r = new Random();
         p = BigInteger.probablePrime(bitlength, r);
@@ -38,11 +39,15 @@ public class Task7 {
         teststring = sc.next();
 
         System.out.println("String: " + teststring);
-        // System.out.println("String in Bytes: " + bytesToString(teststring.getBytes()));
-        
+        // System.out.println("String in Bytes: " +
+        // bytesToString(teststring.getBytes()));
+
         byte[] encrypted = rsa.encrypt(teststring.getBytes());
+
+        // any of the following print statements
         System.out.println("Encrypted String in Bytes: " + Base64.getEncoder().encodeToString(encrypted));
-        
+        System.out.println("Encrypted String in Bytes: " + new BigInteger(1, encrypted).toString(16));
+
         byte[] decrypted = rsa.decrypt(encrypted);
         System.out.println("Decrypted String: " + new String(decrypted));
 
