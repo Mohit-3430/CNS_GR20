@@ -38,7 +38,7 @@ class HillCipher {
         encrypt(cipherMatrix, keyMatrix, messageVector);
         String CipherText = "";
         for (int i = 0; i < 3; i++)
-            CipherText += (char) (cipherMatrix[i][0] + 65);
+            CipherText += (char) (cipherMatrix[i][0] + 'A');
 
         System.out.print(" Ciphertext:" + CipherText);
     }
