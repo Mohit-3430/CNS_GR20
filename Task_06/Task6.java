@@ -7,6 +7,7 @@ class DESTwoThree {
     Cipher dCipher;
 
     // "DESede is also known as triple DES in java.crypto package"
+    // "DES-Encrypt-Decrypt-Encrypt = Triple DES"
 
     DESTwoThree(SecretKey sk) throws Exception {
         eCipher = Cipher.getInstance("DESede");
