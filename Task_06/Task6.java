@@ -18,7 +18,7 @@ class DESTwoThree {
     }
 
     public String encrypt(String str) throws Exception {
-        byte[] byteData = str.getBytes("UTF8");
+        byte[] byteData = str.getBytes();
         // doFinal expects type of byte[] and returns byte[]
         byte[] enc = eCipher.doFinal(byteData);
 
@@ -31,7 +31,7 @@ class DESTwoThree {
         // doFinal expects type of byte[] and returns byte[]
         byte[] byteData = dCipher.doFinal(dec);
 
-        return new String(byteData, "UTF8");
+        return new String(byteData);
     }
 }
 

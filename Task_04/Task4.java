@@ -6,7 +6,7 @@ class MyDES {
     Cipher eCipher;
     Cipher dCipher;
 
-    //initialization
+    // initialization
     MyDES(SecretKey key) throws Exception {
         eCipher = Cipher.getInstance("AES");
         dCipher = Cipher.getInstance("AES");
@@ -15,8 +15,8 @@ class MyDES {
     }
 
     public String encrypt(String str) throws Exception {
-        byte[] byteData = str.getBytes("UTF8");
-        //doFinal expects type of byte[] and returns byte[]
+        byte[] byteData = str.getBytes();
+        // doFinal expects type of byte[] and returns byte[]
         byte[] enc = eCipher.doFinal(byteData);
 
         // Encode bytes to base64 to get a string
@@ -25,14 +25,14 @@ class MyDES {
 
     public String decrypt(String str) throws Exception {
         byte[] dec = Base64.getDecoder().decode(str);
-        //doFinal expects type of byte[] and returns byte[]
+        // doFinal expects type of byte[] and returns byte[]
         byte[] byteData = dCipher.doFinal(dec);
 
-        return new String(byteData, "UTF8");
+        return new String(byteData);
     }
 }
 
-class Task4{
+class Task4 {
     public static void main(String[] argv) throws Exception {
         Scanner sc = new Scanner(System.in);
 
@@ -42,7 +42,7 @@ class Task4{
 
         // generation of Secret key
         SecretKey key = KeyGenerator.getInstance("AES").generateKey();
-        
+
         // Instantiation of our custom class
         MyDES myDES = new MyDES(key);
 
