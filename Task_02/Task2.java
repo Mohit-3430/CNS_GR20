@@ -1,9 +1,3 @@
-// import javax.crypto.Cipher;
-// import javax.crypto.KeyGenerator;
-// import javax.crypto.SecretKey;
-// import java.util.Base64;
-// import java.util.*;
-
 // src : https://www.knowledgefactory.net/2019/10/java-des-encryption-and-decryption-with-example.html
 
 import javax.crypto.*;
@@ -14,7 +8,7 @@ class MyDES {
     Cipher eCipher;
     Cipher dCipher;
 
-    //initialization
+    // initialization
     MyDES(SecretKey key) throws Exception {
         eCipher = Cipher.getInstance("DES");
         dCipher = Cipher.getInstance("DES");
@@ -24,7 +18,7 @@ class MyDES {
 
     public String encrypt(String str) throws Exception {
         byte[] byteData = str.getBytes("UTF8");
-        //doFinal expects type of byte[] and returns byte[]
+        // doFinal expects type of byte[] and returns byte[]
         byte[] enc = eCipher.doFinal(byteData);
 
         // Encode bytes to base64 to get a string
@@ -33,14 +27,14 @@ class MyDES {
 
     public String decrypt(String str) throws Exception {
         byte[] dec = Base64.getDecoder().decode(str);
-        //doFinal expects type of byte[] and returns byte[]
+        // doFinal expects type of byte[] and returns byte[]
         byte[] byteData = dCipher.doFinal(dec);
 
         return new String(byteData, "UTF8");
     }
 }
 
-class Task2{
+class Task2 {
     public static void main(String[] argv) throws Exception {
         Scanner sc = new Scanner(System.in);
 
@@ -50,7 +44,7 @@ class Task2{
 
         // generation of Secret key
         SecretKey key = KeyGenerator.getInstance("DES").generateKey();
-        
+
         // Instantiation of our custom class
         MyDES myDES = new MyDES(key);
 
