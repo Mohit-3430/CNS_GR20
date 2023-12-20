@@ -8,7 +8,6 @@ class MyDES {
     Cipher eCipher;
     Cipher dCipher;
 
-    // initialization
     MyDES(SecretKey key) throws Exception {
         eCipher = Cipher.getInstance("DES");
         dCipher = Cipher.getInstance("DES");
